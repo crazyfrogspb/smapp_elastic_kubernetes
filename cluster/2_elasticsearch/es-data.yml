@@ -88,7 +88,7 @@ spec:
             timeoutSeconds: 5
           resources:
             limits:
-              memory: 8Gi
+              memory: 16Gi
 
           # spec.template.spec.containers[elasticsearch].env
           env:
@@ -118,9 +118,6 @@ spec:
             - name: data
               mountPath: /usr/share/elasticsearch/data
             - name: config
-              # This path seems likely to break, but $JAVA_HOME doesn't work
-              mountPath: /opt/jdk-11.0.1/lib/security/java.security
-              subPath: java.security
 
       # spec.template.spec
       volumes:
