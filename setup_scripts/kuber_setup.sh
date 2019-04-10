@@ -11,7 +11,7 @@ echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/
 sudo apt-get update
 sudo apt-get install -y kubeadm kubelet kubectl
 IP="$(ifconfig | grep -A 1 'ens3' | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | head -1)"
-sudo kubeadm init --apiserver-advertise-address=$IP
+sudo kubeadm init --apiserver-advertise-address=$IP --pod-network-cidr=192.168.0.0/16
 sudo cp /etc/kubernetes/admin.conf $HOME/
 sudo chown $(id -u):$(id -g) $HOME/admin.conf
 export KUBECONFIG=$HOME/admin.conf
