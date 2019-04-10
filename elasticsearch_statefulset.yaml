@@ -31,7 +31,7 @@ spec:
           protocol: TCP
         volumeMounts:
         - name: data
-          mountPath: /usr/share/elasticsearch/data
+          mountPath: /home/ubuntu/data
         env:
           - name: cluster.name
             value: elastic-smapp
