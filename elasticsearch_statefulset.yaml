@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   name: es-cluster
-  namespace: smapp-elastic
+  namespace: elastic-smapp
 spec:
   serviceName: elasticsearch
   replicas: 3
