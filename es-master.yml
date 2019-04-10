@@ -72,7 +72,9 @@ spec:
               resource: limits.cpu
         resources:
           limits:
-            cpu: 4
+            memory: 16Gi
+          requests:
+            memory: 8Gi
         ports:
         - containerPort: 9300
           name: transport

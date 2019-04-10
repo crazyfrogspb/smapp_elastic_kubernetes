@@ -8,7 +8,8 @@ curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add
 echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 sudo apt-get update
 sudo apt-get install -y kubeadm kubelet kubectl
-sudo kubeadm init --apiserver-advertise-address=192.168.0.71 --pod-network-cidr=192.168.1.0/16
+IP="$(ifconfig | grep -A 1 'ens3' | grep -oE "\b([0-9]{1,3}\.){3}[0-9]{1,3}\b" | head -1)"
+sudo kubeadm init --apiserver-advertise-address=$IP
 sudo cp /etc/kubernetes/admin.conf $HOME/
 sudo chown $(id -u):$(id -g) $HOME/admin.conf
 export KUBECONFIG=$HOME/admin.conf
@@ -17,3 +18,4 @@ sudo systemctl daemon-reload
 sudo systemctl restart kubelet
 sudo groupadd docker
 sudo gpasswd -a $USER docker
+kubectl taint nodes smapp-elastic-1 node-role.kubernetes.io/master-
