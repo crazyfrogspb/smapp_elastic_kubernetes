@@ -116,7 +116,7 @@ spec:
           # spec.template.spec.containers[elasticsearch].volumeMounts
           volumeMounts:
             - name: data
-              mountPath: /data
+              mountPath: /usr/share/elasticsearch/data
             - name: config
               # This path seems likely to break, but $JAVA_HOME doesn't work
               mountPath: /opt/jdk-11.0.1/lib/security/java.security
