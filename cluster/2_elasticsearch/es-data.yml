@@ -69,7 +69,7 @@ spec:
       # spec.template.spec.containers
       containers:
         - name: elasticsearch
-          image: docker.elastic.co/elasticsearch/elasticsearch:6.5.2
+          image: crazyfrogspb/elastic-smapp
           ports:
             - containerPort: 9200
               name: http
@@ -138,7 +138,7 @@ spec:
         storageClassName: local-storage
         resources:
           requests:
-            storage: 800Gi
+            storage: 500Gi
 ---
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget

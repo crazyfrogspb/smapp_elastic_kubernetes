@@ -1,5 +1,5 @@
 sudo apt-get update
-sudo apt-get install -y apt-transport-https
+sudo apt-get install -y apt-transport-https openjdk-11-jdk
 curl -s https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 sudo apt update
