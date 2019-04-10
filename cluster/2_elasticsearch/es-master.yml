@@ -95,7 +95,6 @@ spec:
           volumeMounts:
             - name: storage
               mountPath: /usr/share/elasticsearch/data
-            - name: config
 
       # spec.template.spec
       volumes:
