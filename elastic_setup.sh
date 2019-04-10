@@ -1,2 +1,1 @@
-kubectl create -f elastic-smapp.yaml
-kubectl create -f elasticsearch_svc.yaml
+kubectl apply -f es-master.yml
