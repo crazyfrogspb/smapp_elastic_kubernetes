@@ -3,32 +3,21 @@ kind: Namespace
 metadata:
   name: elasticsearch
 ---
-apiVersion: storage.k8s.io/v1beta1
-kind: StorageClass
-metadata:
-  name: fast
-provisioner: kubernetes.io/gce-pd
-parameters:
-  type: pd-ssd
-  fsType: xfs
-allowVolumeExpansion: true
----
 apiVersion: apps/v1beta1
-kind: StatefulSet
+kind: Deployment
 metadata:
-  name: es-data
+  name: es-client
   namespace: elasticsearch
   labels:
     component: elasticsearch
-    role: data
+    role: client
 spec:
-  serviceName: elasticsearch-data
-  replicas: 3
+  replicas: 2
   template:
     metadata:
       labels:
         component: elasticsearch
-        role: data
+        role: client
     spec:
       affinity:
         podAntiAffinity:
@@ -40,7 +29,7 @@ spec:
                 - key: role
                   operator: In
                   values:
-                  - data
+                  - client
               topologyKey: kubernetes.io/hostname
       initContainers:
       - name: init-sysctl
@@ -52,7 +41,7 @@ spec:
         securityContext:
           privileged: true
       containers:
-      - name: es-data
+      - name: es-client
         image: crazyfrogspb/elastic-smapp
         env:
         - name: NAMESPACE
@@ -67,50 +56,49 @@ spec:
           value: elastic-smapp
         - name: NODE_MASTER
           value: "false"
-        - name: NODE_INGEST
+        - name: NODE_DATA
           value: "false"
         - name: HTTP_ENABLE
-          value: "false"
+          value: "true"
         - name: ES_JAVA_OPTS
           value: -Xms4g -Xmx4g
+        - name: NETWORK_HOST
+          value: _site_,_lo_
         - name: PROCESSORS
           valueFrom:
             resourceFieldRef:
               resource: limits.cpu
         resources:
           limits:
-            cpu: 2
+            cpu: 1
         ports:
+        - containerPort: 9200
+          name: http
         - containerPort: 9300
           name: transport
         volumeMounts:
         - name: storage
           mountPath: /data
-  volumeClaimTemplates:
-  - metadata:
-      name: storage
-      annotations:
-        volume.beta.kubernetes.io/storage-class: "fast"
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: fast
-      resources:
-        requests:
-          storage: 10Gi
+      volumes:
+          - emptyDir:
+              medium: ""
+            name: storage
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: elasticsearch-data
+  name: elasticsearch
   namespace: elasticsearch
+  annotations:
+    cloud.google.com/load-balancer-type: Internal
   labels:
     component: elasticsearch
-    role: data
+    role: client
 spec:
-  ports:
-  - port: 9300
-    name: transport
-  clusterIP: None
   selector:
     component: elasticsearch
-    role: data
+    role: client
+  ports:
+  - name: http
+    port: 9200
+type: LoadBalancer
