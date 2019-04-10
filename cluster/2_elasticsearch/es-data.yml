@@ -116,7 +116,7 @@ spec:
           # spec.template.spec.containers[elasticsearch].volumeMounts
           volumeMounts:
             - name: data
-              mountPath: /usr/share/elasticsearch/data
+              mountPath: /data
             - name: config
               # This path seems likely to break, but $JAVA_HOME doesn't work
               mountPath: /opt/jdk-11.0.1/lib/security/java.security
@@ -138,7 +138,7 @@ spec:
         storageClassName: local-storage
         resources:
           requests:
-            storage: 1Gi
+            storage: 800Gi
 ---
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
