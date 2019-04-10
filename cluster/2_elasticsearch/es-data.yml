@@ -88,7 +88,7 @@ spec:
             timeoutSeconds: 5
           resources:
             limits:
-              memory: 1Gi
+              memory: 16Gi
 
           # spec.template.spec.containers[elasticsearch].env
           env:
@@ -134,7 +134,7 @@ spec:
         storageClassName: local-storage
         resources:
           requests:
-            storage: 50Mi
+            storage: 800Gi
 ---
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
