@@ -4,9 +4,10 @@ metadata:
   namespace: elastic-smapp
   name: elasticsearch-master
   labels:
-    component: elasticsearch
+    app: elasticsearch
     role: master
 spec:
+  serviceName: elasticsearch-master
   replicas: 3
   selector:
     matchLabels:
