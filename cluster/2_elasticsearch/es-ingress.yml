@@ -12,7 +12,7 @@ metadata:
     ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - https:
+  - http:
       paths:
         - path: /elasticsearch
           backend:
@@ -22,22 +22,3 @@ spec:
           backend:
             serviceName: kibana
             servicePort: 5601
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: ingress-nginx
-  namespace: elastic-smapp
-  labels:
-    app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/part-of: ingress-nginx
-spec:
-  loadBalancerIP: 128.122.217.226
-  type: LoadBalancer
-  selector:
-    app.kubernetes.io/name: ingress-nginx
-    app.kubernetes.io/part-of: ingress-nginx
-  ports:
-  - name: https
-    port: 443
-    targetPort: https
