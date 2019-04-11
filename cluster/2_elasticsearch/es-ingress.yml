@@ -15,11 +15,11 @@ spec:
   rules:
   - http:
       paths:
-        - path: /
+        - path: /elastic
           backend:
             serviceName: elasticsearch-master
             servicePort: 9200
-        - path: /kibana
+        - path: /
           backend:
             serviceName: kibana
             servicePort: 5601
