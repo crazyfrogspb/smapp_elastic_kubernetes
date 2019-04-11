@@ -15,7 +15,7 @@ spec:
   rules:
   - http:
       paths:
-        - path: /elastic
+        - path: /elastic/*
           backend:
             serviceName: elasticsearch-master
             servicePort: 9200
