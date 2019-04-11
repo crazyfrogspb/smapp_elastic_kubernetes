@@ -13,7 +13,7 @@ metadata:
 spec:
   rules:
   - host: elasticsearch.smapp.com
-  - http:
+    https:
       paths:
         - path: /
           backend:
