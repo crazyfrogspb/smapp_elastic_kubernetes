@@ -6,12 +6,13 @@ metadata:
   labels:
     app: kibana
 spec:
+  clusterIP: None
   selector:
     app: kibana
   ports:
-    - port: 80
-      targetPort: 5601
-      protocol: TCP
+    - port: 5601
+      name: http
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
