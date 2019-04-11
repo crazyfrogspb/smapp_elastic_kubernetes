@@ -12,9 +12,10 @@ metadata:
     ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
+  - host: elasticsearch.smapp.com
   - http:
       paths:
-        - path: /elasticsearch
+        - path: /
           backend:
             serviceName: elasticsearch-master
             servicePort: 9200
