@@ -7,9 +7,10 @@ metadata:
     #ingress.kubernetes.io/auth-realm: Authentication Required
     #ingress.kubernetes.io/auth-secret: internal-services-auth
     #ingress.kubernetes.io/auth-type: basic
-    #kubernetes.io/ingress.allow-http: "false"
+    kubernetes.io/ingress.allow-http: "false"
     ingress.kubernetes.io/ssl-redirect: "false"
     #kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - http:
