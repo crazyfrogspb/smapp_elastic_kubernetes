@@ -68,7 +68,7 @@ spec:
           # spec.template.spec.containers[elasticsearch].env
           env:
             - name: discovery.zen.ping.unicast.hosts
-              value: "192.168.0.70,192.168.0.102,192.168.0.124"
+              value: "elasticsearch-master,elasticsearch"
             - name: ES_JAVA_OPTS
               value: -Xms512m -Xmx512m
 
