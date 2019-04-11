@@ -67,6 +67,9 @@ spec:
 
           # spec.template.spec.containers[elasticsearch].env
           env:
+            - name: discovery.zen.ping.unicast.hosts
+              value: "elasticsearch-master"
+
             - name: ES_JAVA_OPTS
               value: -Xms512m -Xmx512m
 
@@ -119,6 +122,8 @@ kind: Service
 metadata:
   namespace: elastic-smapp
   name: elasticsearch-master
+  annotations:
+    service.alpha.kubernetes.io/tolerate-unready-endpoints: "true"
   labels:
     app: elasticsearch
     role: master
@@ -132,3 +137,8 @@ spec:
       name: http
     - port: 9300
       name: node-to-node
+      protocol: TCP
+      targetPort: 9300
+  publishNotReadyAddresses: true
+  sessionAffinity: None
+  type: ClusterIP
