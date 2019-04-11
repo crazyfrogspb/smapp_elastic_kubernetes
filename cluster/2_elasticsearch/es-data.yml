@@ -80,6 +80,7 @@ spec:
               port: transport
             initialDelaySeconds: 60
             periodSeconds: 10
+            timeoutSeconds: 5
           readinessProbe:
             httpGet:
               path: /_cluster/health

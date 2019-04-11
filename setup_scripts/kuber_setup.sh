@@ -1,5 +1,5 @@
 sudo apt-get update
-sudo apt-get install -y apt-transport-https openjdk-11-jdk
+sudo apt-get install -y apt-transport-https openjdk-11-jdk bridge-utils
 curl -s https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 sudo apt update
@@ -19,5 +19,8 @@ kubectl -n kube-system apply -f https://raw.githubusercontent.com/coreos/flannel
 sudo systemctl daemon-reload
 sudo systemctl restart kubelet
 
+kubectl label node smapp-elastic-master-1 node-role.kubernetes.io/master=master
+kubectl label node smapp-elastic-master-2 node-role.kubernetes.io/master=master
+kubectl label node smapp-elastic-master-3 node-role.kubernetes.io/master=master
 kubectl label node smapp-elastic-data-1 node-role.kubernetes.io/data=data
 kubectl label node smapp-elastic-data-2 node-role.kubernetes.io/data=data

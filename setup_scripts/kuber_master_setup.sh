@@ -1,5 +1,5 @@
 sudo apt-get update
-sudo apt-get install -y apt-transport-https
+sudo apt-get install -y apt-transport-https bridge-utils
 curl -s https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"
 sudo apt update && sudo apt install -qy docker-ce
