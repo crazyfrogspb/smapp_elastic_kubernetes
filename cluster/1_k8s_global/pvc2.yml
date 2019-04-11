@@ -4,7 +4,7 @@ metadata:
   name: elastic-pv2
 spec:
   capacity:
-    storage: 800Gi
+    storage: 1800Gi
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
