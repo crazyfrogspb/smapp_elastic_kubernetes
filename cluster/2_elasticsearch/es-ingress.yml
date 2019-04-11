@@ -1,8 +1,13 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
+  namespace: elastic-smapp
   name: elasticsearch-ingress
   annotations:
+    #ingress.kubernetes.io/auth-realm: Authentication Required
+    #ingress.kubernetes.io/auth-secret: internal-services-auth
+    #ingress.kubernetes.io/auth-type: basic
+    #kubernetes.io/ingress.allow-http: "false"
     ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
