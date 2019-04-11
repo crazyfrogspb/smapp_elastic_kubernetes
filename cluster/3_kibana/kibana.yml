@@ -9,7 +9,7 @@ spec:
   selector:
     app: kibana
   ports:
-    - port: 80
+    - port: 5601
       targetPort: 5601
       protocol: TCP
 ---
