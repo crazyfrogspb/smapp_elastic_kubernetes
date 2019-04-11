@@ -42,4 +42,4 @@ spec:
             - name: SERVER_HOST
               value: "0.0.0.0"
             - name: ELASTICSEARCH_URL
-              value: http://elasticsearch.elastic-smapp.svc.cluster.local:9200
+              value: http://es-cluster-master-0.elasticsearch-master.elastic-smapp.svc.cluster.local:9200
