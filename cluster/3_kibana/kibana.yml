@@ -37,5 +37,5 @@ spec:
           env:
             - name: ELASTICSEARCH_URL
               value: "http://elasticsearch-master.elastic-smapp.svc.cluster.local:9200"
-            - name: SERVER_BASEPATH
+            - name: KIBANA_BASE_URL
               value: "/api/v1/namespaces/elastic-smapp/services/kibana/proxy"
