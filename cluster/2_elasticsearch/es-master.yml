@@ -67,8 +67,6 @@ spec:
 
           # spec.template.spec.containers[elasticsearch].env
           env:
-            - name: discovery.zen.ping.unicast.hosts
-              value: "elasticsearch-master,elasticsearch"
             - name: ES_JAVA_OPTS
               value: -Xms512m -Xmx512m
 
@@ -115,3 +113,22 @@ spec:
     matchLabels:
       app: elasticsearch
       role: master
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: elastic-smapp
+  name: elasticsearch-master
+  labels:
+    app: elasticsearch
+    role: master
+spec:
+  clusterIP: None
+  selector:
+    app: elasticsearch
+    role: master
+  ports:
+    - port: 9200
+      name: http
+    - port: 9300
+      name: node-to-node

@@ -148,3 +148,22 @@ spec:
     matchLabels:
       app: elasticsearch
       role: data
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: elastic-smapp
+  name: elasticsearch
+  labels:
+    app: elasticsearch
+    role: data
+spec:
+  clusterIP: None
+  selector:
+    app: elasticsearch
+    role: data
+  ports:
+    - port: 9200
+      name: http
+    - port: 9300
+      name: node-to-node
