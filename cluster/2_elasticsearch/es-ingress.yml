@@ -27,11 +27,12 @@ metadata:
   name: kibana-ingress
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
+    ingress.kubernetes.io/rewrite-target: /app/kibana
 spec:
   rules:
   - http:
       paths:
-        - path: /
+        - path: /kibana
           backend:
             serviceName: kibana
             servicePort: 5601
