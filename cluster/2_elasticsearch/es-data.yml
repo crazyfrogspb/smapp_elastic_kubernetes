@@ -2,13 +2,12 @@ apiVersion: apps/v1
 kind: StatefulSet
 metadata:
   namespace: elastic-smapp
-  name: elasticsearch-data
+  name: es-cluster-data
   labels:
     app: elasticsearch
     role: data
 spec:
   serviceName: elasticsearch-data
-  # This is number of nodes that we want to run
   replicas: 2
   selector:
     matchLabels:

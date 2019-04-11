@@ -1,12 +1,13 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   namespace: elastic-smapp
-  name: elasticsearch-master
+  name: es-cluster-master
   labels:
     app: elasticsearch
     role: master
 spec:
+  serviceName: elasticsearch-master
   replicas: 3
   selector:
     matchLabels:
@@ -68,7 +69,7 @@ spec:
           # spec.template.spec.containers[elasticsearch].env
           env:
             - name: discovery.zen.ping.unicast.hosts
-              value: "elasticsearch-master"
+              value: "es-cluster-master-0.elasticsearch-master,es-cluster-master-1.elasticsearch-master,es-cluster-master-2.elasticsearch-master"
 
             - name: ES_JAVA_OPTS
               value: -Xms512m -Xmx512m
