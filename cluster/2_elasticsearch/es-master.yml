@@ -7,7 +7,6 @@ metadata:
     app: elasticsearch
     role: master
 spec:
-  serviceName: elasticsearch-master
   replicas: 3
   selector:
     matchLabels:
