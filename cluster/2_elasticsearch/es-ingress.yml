@@ -27,7 +27,7 @@ metadata:
   name: kibana-ingress
   annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
-    nginx.ingress.kubernetes.io/rewrite-target: /app
+    nginx.ingress.kubernetes.io/rewrite-target: /app/kibana
 spec:
   rules:
   - http:
