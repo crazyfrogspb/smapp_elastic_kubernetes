@@ -10,6 +10,10 @@ metadata:
     #kubernetes.io/ingress.allow-http: "false"
     ingress.kubernetes.io/rewrite-target: /
 spec:
+  deprecatedPublicIPs:
+  - 128.122.217.226
+  externalIPs:
+  - 128.122.217.226
   rules:
   - http:
       paths:
