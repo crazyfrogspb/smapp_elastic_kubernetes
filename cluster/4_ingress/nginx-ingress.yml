@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  namespace: elastic-smapp
+  name: elasticsearch-ingress
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /elasticsearch
+          backend:
+            serviceName: elasticsearch-master
+            servicePort: 9200
+        - path: /kibana
+          backend:
+            serviceName: kibana
+            servicePort: 5601
+  - https:
+      paths:
+        - path: /elasticsearch
+          backend:
+            serviceName: elasticsearch-master
+            servicePort: 9200
+        - path: /kibana
+          backend:
+            serviceName: kibana
+            servicePort: 5601
