@@ -16,6 +16,5 @@ sudo cp /etc/kubernetes/admin.conf $HOME/
 sudo chown $(id -u):$(id -g) $HOME/admin.conf
 export KUBECONFIG=$HOME/admin.conf
 kubectl -n kube-system apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
-kubectl taint nodes smapp-elastic-1 node-role.kubernetes.io/master-
 sudo systemctl daemon-reload
 sudo systemctl restart kubelet

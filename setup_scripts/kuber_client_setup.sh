@@ -10,5 +10,3 @@ sudo mkdir /usr/share/elasticsearch/
 sudo mkdir /usr/share/elasticsearch/data
 sudo kubeadm join 192.168.0.124:6443 --token mxmz9j.uidpb68tvvnfjos9 \
     --discovery-token-ca-cert-hash sha256:f940b0987d5fb461468d4c83e783f446ce8dddd4e61edaa2a430310b8422f637
-sudo systemctl daemon-reload
-sudo systemctl restart kubelet
