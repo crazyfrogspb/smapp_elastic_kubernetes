@@ -36,4 +36,4 @@ spec:
             - containerPort: 5601
           env:
             - name: ELASTICSEARCH_URL
-              value: "http://es-cluster-master:9200"
+              value: "http://es-cluster-masterr:9200"
