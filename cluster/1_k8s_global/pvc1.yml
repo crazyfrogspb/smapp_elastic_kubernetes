@@ -4,7 +4,7 @@ metadata:
   name: elastic-pv1
 spec:
   capacity:
-    storage: 800Gi
+    storage: 1800Gi
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
@@ -18,4 +18,4 @@ spec:
         - key: kubernetes.io/hostname
           operator: In
           values:
-          - smapp-elastic-1
+          - smapp-elastic-data-1

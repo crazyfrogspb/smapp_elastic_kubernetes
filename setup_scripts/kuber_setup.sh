@@ -18,3 +18,6 @@ export KUBECONFIG=$HOME/admin.conf
 kubectl -n kube-system apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml
 sudo systemctl daemon-reload
 sudo systemctl restart kubelet
+
+kubectl label node smapp-elastic-data-1 node-role.kubernetes.io/data=data
+kubectl label node smapp-elastic-data-2 node-role.kubernetes.io/data=data
