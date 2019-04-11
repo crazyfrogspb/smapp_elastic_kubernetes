@@ -9,7 +9,7 @@ metadata:
 spec:
   serviceName: elasticsearch-data
   # This is number of nodes that we want to run
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: elasticsearch
@@ -134,7 +134,7 @@ spec:
         storageClassName: local-storage
         resources:
           requests:
-            storage: 800Gi
+            storage: 1800Gi
 ---
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
