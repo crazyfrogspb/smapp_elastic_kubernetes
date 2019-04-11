@@ -49,7 +49,7 @@ spec:
       # spec.template.spec.containers
       containers:
         - name: elasticsearch
-          image: crazyfrogspb/elastic-smapp
+          image: crazyfrogspb/smapp-elasticsearch
           ports:
             - containerPort: 9200
               name: http
