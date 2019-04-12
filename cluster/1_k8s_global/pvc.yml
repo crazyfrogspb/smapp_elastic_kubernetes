@@ -1,0 +1,87 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: elastic-pv1
+spec:
+  capacity:
+    storage: 900Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /usr/share/elasticsearch/data
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - smapp-elastic-data-1
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: elastic-pv2
+spec:
+  capacity:
+    storage: 900Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /usr/share/elasticsearch/data
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - smapp-elastic-data-2
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: elastic-pv3
+spec:
+  capacity:
+    storage: 900Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /usr/share/elasticsearch/data
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - smapp-elastic-data-3
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: elastic-pv4
+spec:
+  capacity:
+    storage: 900Gi
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: local-storage
+  local:
+    path: /usr/share/elasticsearch/data
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - smapp-elastic-data-4
