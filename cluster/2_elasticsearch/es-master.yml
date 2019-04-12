@@ -91,6 +91,8 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
+            - name: processors
+              value: 6
 
           # spec.template.spec.containers[elasticsearch].volumeMounts
           volumeMounts:

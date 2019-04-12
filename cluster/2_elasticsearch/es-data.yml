@@ -95,7 +95,7 @@ spec:
             - name: discovery.zen.ping.unicast.hosts
               value: "elasticsearch-master.elastic-smapp.svc.cluster.local,elasticsearch.elastic-smapp.svc.cluster.local"
             - name: ES_JAVA_OPTS
-              value: -Xms4g -Xmx4g
+              value: -Xms8g -Xmx8g
 
             - name: node.master
               value: "false"
@@ -112,6 +112,8 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
+            - name: processors
+              value: 6
 
           # spec.template.spec.containers[elasticsearch].volumeMounts
           volumeMounts:

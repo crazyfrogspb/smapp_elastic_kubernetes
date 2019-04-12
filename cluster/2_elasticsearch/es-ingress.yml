@@ -19,7 +19,7 @@ spec:
           backend:
             serviceName: elasticsearch-master
             servicePort: 9200
-        - path: /kibana
+        - path: /app/kibana
           backend:
             serviceName: kibana
             servicePort: 5601
