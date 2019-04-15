@@ -46,7 +46,7 @@ spec:
         - path: /dashboard
           backend:
             serviceName: kibana
-            servicePort: 8443
+            servicePort: 443
 ---
 apiVersion: v1
 kind: Service
