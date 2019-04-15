@@ -24,8 +24,8 @@ spec:
             - name: ELASTICSEARCH_URL
               value: "http://elasticsearch-master.elastic-smapp:9200"
             - name: SERVER_BASEPATH
-              value: ""
-            - name: server.rewriteBasePath
+              value: "/kibana"
+            - name: SERVER_REWRITEBASEPATH
               value: "true"
 ---
 apiVersion: v1
