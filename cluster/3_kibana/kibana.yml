@@ -25,6 +25,8 @@ spec:
               value: "http://elasticsearch-master.elastic-smapp:9200"
             - name: SERVER_BASEPATH
               value: ""
+            - name: server.rewriteBasePath
+            - value: "true"
 ---
 apiVersion: v1
 kind: Service
