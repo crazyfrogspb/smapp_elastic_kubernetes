@@ -1,9 +1,0 @@
-*.pem
-*.crt
-*.key
-credentials
-
-clusters/**
-__pycache__
-
-.DS_Store
