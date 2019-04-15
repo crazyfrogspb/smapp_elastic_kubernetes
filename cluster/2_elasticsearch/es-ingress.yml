@@ -45,7 +45,7 @@ spec:
       paths:
         - path: /dashboard
           backend:
-            serviceName: kibana
+            serviceName: kubernetes-dashboard
             servicePort: 443
 ---
 apiVersion: v1
