@@ -24,7 +24,7 @@ spec:
             - name: ELASTICSEARCH_URL
               value: "http://elasticsearch-master.elastic-smapp:9200"
             - name: SERVER_BASEPATH
-              value: "/"
+              value: "/app""
             - name: server.rewriteBasePath
               value: "true"
 ---
