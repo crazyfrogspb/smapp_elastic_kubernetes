@@ -22,7 +22,7 @@ spec:
             - containerPort: 5601
           env:
             - name: ELASTICSEARCH_URL
-              value: "http://128.122.217.226"
+              value: "http://192.168.0.71"
             - name: SERVER_BASEPATH
               value: "/kibana"
             - name: SERVER_REWRITEBASEPATH
