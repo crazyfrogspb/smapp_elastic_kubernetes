@@ -22,7 +22,7 @@ spec:
             - containerPort: 5601
           env:
             - name: ELASTICSEARCH_URL
-              value: "http://elasticsearch-master.elastic-smapp:9200"
+              value: "http://localhost:9200"
             - name: SERVER_BASEPATH
               value: "/kibana"
             - name: SERVER_REWRITEBASEPATH
