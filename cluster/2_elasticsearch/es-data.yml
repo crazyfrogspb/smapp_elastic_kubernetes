@@ -114,6 +114,8 @@ spec:
                   fieldPath: metadata.name
             - name: processors
               value: "4"
+            - name: http.max_content_length
+              value: "100mb"
 
           # spec.template.spec.containers[elasticsearch].volumeMounts
           volumeMounts:
