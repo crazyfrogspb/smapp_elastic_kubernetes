@@ -4,13 +4,13 @@ metadata:
   namespace: elastic-smapp
   name: elasticsearch-ingress
   annotations:
-    ingress.kubernetes.io/auth-type: basic
-    ingress.kubernetes.io/auth-secret: basic-auth
-    ingress.kubernetes.io/auth-realm: "Authentication Required"
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: basic-auth
+    nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    kubernetes.io/ingress.allow-http: "false"
+    nginx.kubernetes.io/ingress.allow-http: "false"
     nginx.ingress.kubernetes.io/configuration-snippet: |
        rewrite ^/kibana/(.*)$ /$1 break;
 spec:
@@ -32,13 +32,13 @@ metadata:
   namespace: kube-system
   name: kubernetes-dashboard
   annotations:
-    ingress.kubernetes.io/auth-type: basic
-    ingress.kubernetes.io/auth-secret: elastic-smapp/basic-auth
-    ingress.kubernetes.io/auth-realm: "Authentication Required"
+    nginx.ingress.kubernetes.io/auth-type: basic
+    nginx.ingress.kubernetes.io/auth-secret: elastic-smapp/basic-auth
+    nginx.ingress.kubernetes.io/auth-realm: "Authentication Required"
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
-    kubernetes.io/ingress.allow-http: "false"
+    nginx.kubernetes.io/ingress.allow-http: "false"
 spec:
   rules:
   - http:
