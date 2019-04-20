@@ -138,11 +138,6 @@ metadata:
     app: elasticsearch
     role: master
 spec:
-  tolerations:
-    - key: "nodetype"
-      operator: "Equal"
-      value: "master"
-      effect: "NoSchedule"
   clusterIP: None
   selector:
     app: elasticsearch

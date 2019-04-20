@@ -166,11 +166,6 @@ metadata:
     app: elasticsearch
     role: data
 spec:
-  tolerations:
-    - key: "nodetype"
-      operator: "Equal"
-      value: "data"
-      effect: "NoSchedule"
   clusterIP: None
   selector:
     app: elasticsearch
