@@ -19,6 +19,11 @@ spec:
         app: elasticsearch
         role: master
     spec:
+      tolerations:
+        - key: "nodetype"
+          operator: "Equal"
+          value: "master"
+          effect: "NoSchedule"
       affinity:
         # Try to put each ES master node on a different node in the K8s cluster
         podAntiAffinity:
