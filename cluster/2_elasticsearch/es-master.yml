@@ -121,11 +121,6 @@ metadata:
   namespace: elastic-smapp
   name: elasticsearch-master
 spec:
-  tolerations:
-    - key: "nodetype"
-      operator: "Equal"
-      value: "master"
-      effect: "NoSchedule"
   maxUnavailable: 1
   selector:
     matchLabels:

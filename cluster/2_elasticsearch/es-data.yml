@@ -151,11 +151,6 @@ metadata:
   namespace: elastic-smapp
   name: elasticsearch-data
 spec:
-  tolerations:
-    - key: "nodetype"
-      operator: "Equal"
-      value: "data"
-      effect: "NoSchedule"
   maxUnavailable: 1
   selector:
     matchLabels:
