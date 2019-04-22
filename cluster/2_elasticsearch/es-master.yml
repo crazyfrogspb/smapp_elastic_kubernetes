@@ -72,7 +72,7 @@ spec:
               value: "es-cluster-master-0.elasticsearch-master.elastic-smapp.svc.cluster.local,es-cluster-master-1.elasticsearch-master.elastic-smapp.svc.cluster.local,es-cluster-master-2.elasticsearch-master.elastic-smapp.svc.cluster.local"
 
             - name: ES_JAVA_OPTS
-              value: -Xms512m -Xmx512m
+              value: -Xms16g -Xmx16g
 
             - name: discovery.zen.minimum_master_nodes
               value: "2"
