@@ -25,6 +25,10 @@ spec:
           backend:
             serviceName: kibana
             servicePort: 5601
+        - path: /flask
+          backend:
+            serviceName: flask-app-example
+            servicePort: 8080
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress

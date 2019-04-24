@@ -4,17 +4,17 @@ metadata:
   namespace: elastic-smapp
   name: flask-app-example
   labels:
-    name: flask-app-example
+    app: flask-app-example
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: flask-app-example
+      app: flask-app-example
   template:
     metadata:
       name: flask-app-example
       labels:
-        name: flask-app-example
+        app: flask-app-example
     spec:
       containers:
         - name: flask-app-example
@@ -29,3 +29,19 @@ spec:
           env:
             - name: DEBUG_MODE
               value: "1"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: elastic-smapp
+  name: flask-app-example
+  labels:
+    app: flask-app-example
+spec:
+  clusterIP: None
+  selector:
+    app: flask-app-example
+  ports:
+    - port: 8080
+      name: http
+  type: ClusterIP
