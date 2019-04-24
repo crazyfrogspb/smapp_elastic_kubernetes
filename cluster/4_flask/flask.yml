@@ -1,0 +1,31 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  namespace: elastic-smapp
+  name: flask-app-example
+  labels:
+    name: flask-app-example
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: flask-app-example
+  template:
+    metadata:
+      name: flask-app-example
+      labels:
+        name: flask-app-example
+    spec:
+      containers:
+        - name: flask-app-example
+          image: crazyfrogspb/app_example
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              memory: 256Mi
+            limits:
+              memory: 512Mi
+          env:
+            - name: DEBUG_MODE
+              value: "1"
