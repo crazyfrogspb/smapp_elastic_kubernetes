@@ -36,6 +36,8 @@ spec:
               value: "/kibana"
             - name: SERVER_REWRITEBASEPATH
               value: "false"
+            - name: SERVER_MAXPAYLOADBYTES
+              value: "8048576"
             #- name: requestTimeout
             #  value: "60000"
 ---
