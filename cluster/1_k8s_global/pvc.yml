@@ -92,7 +92,7 @@ metadata:
   name: elastic-pv5
 spec:
   capacity:
-    storage: 900Gi
+    storage: 650Gi
   accessModes:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain

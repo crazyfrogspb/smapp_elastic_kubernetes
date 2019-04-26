@@ -140,7 +140,7 @@ spec:
         storageClassName: local-storage
         resources:
           requests:
-            storage: 900Gi
+            storage: 650Gi
 ---
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
