@@ -117,7 +117,7 @@ spec:
             - name: http.max_content_length
               value: "100mb"
             - name: index.store.preload
-            - value: "nvd,dvd"
+              value: "nvd,dvd"
 
           # spec.template.spec.containers[elasticsearch].volumeMounts
           volumeMounts:
