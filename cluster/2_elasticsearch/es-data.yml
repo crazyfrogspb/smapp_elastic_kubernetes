@@ -114,8 +114,6 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
-            - name: processors
-              value: "4"
             - name: http.max_content_length
               value: "100mb"
 

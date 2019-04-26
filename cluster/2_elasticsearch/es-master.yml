@@ -59,9 +59,6 @@ spec:
             tcpSocket:
               port: transport
             initialDelaySeconds: 60
-          resources:
-            requests:
-              cpu: 0.25
 
           # spec.template.spec.containers[elasticsearch].env
           env:
@@ -88,8 +85,6 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: metadata.name
-            - name: processors
-              value: "4"
             - name: http.max_content_length
               value: "100mb"
 
