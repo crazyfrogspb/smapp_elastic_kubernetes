@@ -38,8 +38,8 @@ spec:
               value: "false"
             - name: SERVER_MAXPAYLOADBYTES
               value: "8048576"
-            #- name: requestTimeout
-            #  value: "60000"
+            - name: ELASTICSEARCH_REQUESTTIMEOUT
+              value: "60000"
 ---
 apiVersion: v1
 kind: Service
