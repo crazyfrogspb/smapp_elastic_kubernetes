@@ -115,9 +115,6 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
             - name: http.max_content_length
-              value: "100mb"
-            - name: bootstrap.memory_lock
-              value: "true"
 
           # spec.template.spec.containers[elasticsearch].volumeMounts
           volumeMounts:
