@@ -62,7 +62,7 @@ spec:
 
           # spec.template.spec.containers[elasticsearch].env
           env:
-            - name: discovery.zen.ping.unicast.hosts
+            - name: discovery.seed_hosts
               value: "es-cluster-master-0.elasticsearch-master.elastic-smapp.svc.cluster.local,es-cluster-master-1.elasticsearch-master.elastic-smapp.svc.cluster.local,es-cluster-master-2.elasticsearch-master.elastic-smapp.svc.cluster.local"
 
             - name: ES_JAVA_OPTS

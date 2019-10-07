@@ -94,8 +94,8 @@ spec:
 
           # spec.template.spec.containers[elasticsearch].env
           env:
-            - name: discovery.zen.ping.unicast.hosts
-              value: "elasticsearch-master.elastic-smapp.svc.cluster.local,elasticsearch.elastic-smapp.svc.cluster.local"
+            - name: discovery.seed_hosts
+              value: "elasticsearch-master.elastic-smapp.svc.cluster.local"
             - name: ES_JAVA_OPTS
               value: -Xms16g -Xmx16g
 
