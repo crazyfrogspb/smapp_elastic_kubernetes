@@ -16,10 +16,7 @@ metadata:
   labels:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
-  data:
-    proxy-buffers-number: "8"
-    proxy-buffer-size: "1024k"
-    
+
 ---
 kind: ConfigMap
 apiVersion: v1
