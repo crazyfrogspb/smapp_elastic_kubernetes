@@ -82,14 +82,14 @@ spec:
           livenessProbe:
             tcpSocket:
               port: transport
-            initialDelaySeconds: 90
+            initialDelaySeconds: 60
             periodSeconds: 10
             timeoutSeconds: 5
           readinessProbe:
             httpGet:
               path: /_cluster/health
               port: http
-            initialDelaySeconds: 90
+            initialDelaySeconds: 60
             timeoutSeconds: 5
 
           # spec.template.spec.containers[elasticsearch].env
