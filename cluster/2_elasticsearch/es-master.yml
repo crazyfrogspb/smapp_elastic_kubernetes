@@ -66,6 +66,8 @@ spec:
               value: "es-cluster-master-0.elasticsearch-master.elastic-smapp.svc.cluster.local,es-cluster-master-1.elasticsearch-master.elastic-smapp.svc.cluster.local,es-cluster-master-2.elasticsearch-master.elastic-smapp.svc.cluster.local"
             - name: ES_JAVA_OPTS
               value: -Xms8g -Xmx8g
+            - name: cluster.initial_master_nodes
+              value: "192.168.0.23, 192.168.0.8, 192.168.0.31"
             - name: node.master
               value: "true"
             - name: node.ingest
