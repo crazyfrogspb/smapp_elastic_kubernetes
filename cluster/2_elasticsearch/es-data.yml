@@ -95,19 +95,15 @@ spec:
           # spec.template.spec.containers[elasticsearch].env
           env:
             - name: discovery.seed_hosts
-              value: "elasticsearch-master.elastic-smapp.svc.cluster.local,elasticsearch.elastic-smapp.svc.cluster.local"
+              value: "elasticsearch-master.elastic-smapp.svc.cluster.local"
             - name: ES_JAVA_OPTS
               value: -Xms16g -Xmx16g
-
             - name: node.master
               value: "false"
             - name: node.ingest
               value: "true"
             - name: node.data
               value: "true"
-            - name: search.remote.connect
-              value: "true"
-
             - name: cluster.name
               value: smapp-cluster
             - name: node.name
