@@ -67,7 +67,7 @@ spec:
             - name: ES_JAVA_OPTS
               value: -Xms8g -Xmx8g
             - name: cluster.initial_master_nodes
-              value: "smapp-elastic-master-1, smapp-elastic-master-2, smapp-elastic-master-3"
+              value: "es-cluster-master-0, es-cluster-master-1, es-cluster-master-2"
             - name: node.master
               value: "true"
             - name: node.ingest
