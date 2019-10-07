@@ -64,6 +64,7 @@ spec:
   type: LoadBalancer
   externalIPs:
     - 128.122.217.226
+    - 128.122.217.156
   externalTrafficPolicy: Local
   ports:
     - name: http
