@@ -16,9 +16,10 @@ metadata:
   labels:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
-data:
+  data:
     proxy-buffers-number: "8"
     proxy-buffer-size: "1024k"
+    
 ---
 kind: ConfigMap
 apiVersion: v1
@@ -84,14 +85,6 @@ rules:
       - list
       - watch
   - apiGroups:
-      - "networking.k8s.io"
-    resources:
-      - ingresses
-    verbs:
-      - get
-      - list
-      - watch
-  - apiGroups:
       - ""
     resources:
       - events
@@ -100,6 +93,16 @@ rules:
       - patch
   - apiGroups:
       - "extensions"
+      - "networking.k8s.io"
+    resources:
+      - ingresses
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - "extensions"
+      - "networking.k8s.io"
     resources:
       - ingresses/status
     verbs:
@@ -210,6 +213,8 @@ spec:
         prometheus.io/port: "10254"
         prometheus.io/scrape: "true"
     spec:
+      # wait up to five minutes for the drain of connections
+      terminationGracePeriodSeconds: 300
       serviceAccountName: nginx-ingress-serviceaccount
       containers:
         - name: nginx-ingress-controller
@@ -263,5 +268,10 @@ spec:
             periodSeconds: 10
             successThreshold: 1
             timeoutSeconds: 10
+          lifecycle:
+            preStop:
+              exec:
+                command:
+                  - /wait-shutdown
 
 ---
