@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: flask-app-example
-          image: crazyfrogspb/app_example
+          image: crazyfrogspb/app_example:latest
           ports:
             - containerPort: 8080
           env:
